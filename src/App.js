@@ -16,15 +16,15 @@ export default function App() {
 
     switch (name) {
       case 'good':
-        setGood(good + 1);
+        setGood(prevGood => prevGood + 1);
         break;
 
       case 'neutral':
-        setNeutral(neutral + 1);
+        setNeutral(prevNeutral => prevNeutral + 1);
         break;
 
       case 'bad':
-        setBad(bad + 1);
+        setBad(prevBad => prevBad + 1);
         break;
 
       default:
@@ -45,7 +45,7 @@ export default function App() {
   const options = { good, neutral, bad };
   const totalFeedback = countTotalFeedback();
   const positivePercentage = countPositiveFeedbackPercentage();
-  
+
   return (
     <div className="container">
       <Section title="Please leave feedback">
